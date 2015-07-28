@@ -3,4 +3,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="user_name">身份证号</string>
+    <string name="password">密码</string>
+    <string name="button_confirm">确认</string>
+    <string name="button_register">注册</string>
+    <string name="login_fail_message">用户不存在或密码错误</string>
+    <string name="register_fail_message">用户已存在，注册失败</string>
+    <string name="dialog_confirm">好的</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="register_success_message">注册成功，请登录</string>
 </resources>

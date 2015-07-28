@@ -53,19 +53,11 @@ public class CustomHttpClient {
     }
 
 
-    public static String executeHttpPost(String url, ArrayList<NameValuePair> parameters, String json) {
+    public static String executeHttpPost(String url, String json) {
         String result = null;
         httpClient = getHttpClient();
 
-        String Uri = url + "?";
-        for (int i = 0;i < parameters.size();i ++) {
-            Uri += parameters.get(i).getName() + "=" + parameters.get(i).getValue();
-            if (i < parameters.size() - 1) {
-                Uri += "&";
-            }
-        }
-
-        HttpPost httpPost = new HttpPost(Uri);
+        HttpPost httpPost = new HttpPost(url);
         try {
             httpPost.setEntity(new StringEntity(json));
             HttpResponse httpResponse = httpClient.execute(httpPost);

@@ -1,6 +1,5 @@
 package cn.com.mars.allen.phrclient.Activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,13 +23,11 @@ import java.util.ArrayList;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
-import cn.com.mars.allen.phrclient.Util.LoginResponse;
 import cn.com.mars.allen.phrclient.Util.PersonInfo;
-import cn.com.mars.allen.phrclient.Util.RegisterResponse;
 
 public class LoginActivity extends AppCompatActivity {
     public static final int REGISTER_ACTIVITY_TOKEN = 1;
-    private final String SERVLET_TAG = "loginRegisterServlet";
+    private final String SERVLET_TAG = "loginServlet";
 
     private EditText editText_ID;
     private EditText editText_password;
@@ -53,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 String idField = editText_ID.getText().toString();
                 String passwordField = editText_password.getText().toString();
 
-                new LoginTask().execute(Constants.PATH + SERVLET_TAG, Constants._LOGIN_, idField, passwordField);
+                new LoginTask().execute(Constants.PATH + SERVLET_TAG, idField, passwordField);
             }
         });
 
@@ -61,23 +58,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivityForResult(intent, REGISTER_ACTIVITY_TOKEN);
+                startActivity(intent);
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REGISTER_ACTIVITY_TOKEN) {
-            if (resultCode == Activity.RESULT_OK) {
-
-                String json = data.getStringExtra("personInfoJSON");
-
-                new RegisterTask().execute(Constants.PATH + SERVLET_TAG, Constants._REGISTER_, json);
-            }
-        }
     }
 
     @Override
@@ -109,9 +92,8 @@ public class LoginActivity extends AppCompatActivity {
             String result = null;
 
             ArrayList<NameValuePair> parameters = new ArrayList<>();
-            parameters.add(new BasicNameValuePair(Constants._FLAG_, params[1]));
-            parameters.add(new BasicNameValuePair(Constants.USERNAME, params[2]));
-            parameters.add(new BasicNameValuePair(Constants.PASSWORD, params[3]));
+            parameters.add(new BasicNameValuePair(Constants.NAME, params[1]));
+            parameters.add(new BasicNameValuePair(Constants.PASSWORD, params[2]));
             result = CustomHttpClient.executeHttpGet(params[0], parameters);
 
             return result;
@@ -125,13 +107,9 @@ public class LoginActivity extends AppCompatActivity {
 //TEST
                 Log.e("JLJKLJ", result);
 
-                LoginResponse response = new Gson().fromJson(result, LoginResponse.class);
-                if (response.get_LOGIN_RESPONSE().equals(Constants._LOGIN_SUCCESS_)) {
-                    // TODO
-                    // successfully login.
-                    Log.e("Success............", "Blablablabla");
+                PersonInfo response = new Gson().fromJson(result, PersonInfo.class);
+                if (response.getPerson_id().equals(Constants._LOGIN_FAIL_)) {
 
-                } else {
                     new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Oops")
                             .setMessage(R.string.login_fail_message)
@@ -141,57 +119,14 @@ public class LoginActivity extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             }).show();
-                }
-            }
-
-        }
-    }
-
-    private class RegisterTask extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            String result = null;
-
-            ArrayList<NameValuePair> parameters = new ArrayList<>();
-            parameters.add(new BasicNameValuePair(Constants._FLAG_, params[1]));
-            result = CustomHttpClient.executeHttpPost(params[0], parameters, params[2]);
-
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-
-            if (result != null) {
-//TEST
-                Log.e("JLJKLJ", result);
-
-                RegisterResponse response = new Gson().fromJson(result, RegisterResponse.class);
-                if (response.get_REGISTER_RESPONSE().equals(Constants._REGISTER_SUCCESS_)) {
-
-                    new AlertDialog.Builder(LoginActivity.this)
-                            .setTitle("Success!")
-                            .setMessage(R.string.register_success_message)
-                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-
                 } else {
-                    new AlertDialog.Builder(LoginActivity.this)
-                            .setTitle("Oops")
-                            .setMessage(R.string.register_fail_message)
-                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
+                    // TODO
+                    // successfully login.
+                    Log.e("Success............", "Blablablabla");
+
                 }
             }
+
         }
     }
 }

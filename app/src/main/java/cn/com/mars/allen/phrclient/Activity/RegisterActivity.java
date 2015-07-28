@@ -1,11 +1,12 @@
 package cn.com.mars.allen.phrclient.Activity;
 
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,9 +17,13 @@ import android.widget.EditText;
 import com.google.gson.Gson;
 
 import cn.com.mars.allen.phrclient.R;
+import cn.com.mars.allen.phrclient.Util.Constants;
+import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
 import cn.com.mars.allen.phrclient.Util.PersonInfo;
 
 public class RegisterActivity extends AppCompatActivity {
+    private final String SERVLET_TAG = "registerServlet";
+
     private EditText editText_person_id;
     private EditText editText_password;
     private EditText editText_name;
@@ -70,11 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                         );
                 String json = new Gson().toJson(personInfo);
 
-                Intent resultIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                resultIntent.putExtra("personInfoJSON", json);
-
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
+                new RegisterTask().execute(Constants.PATH + SERVLET_TAG, json);
             }
         });
 
@@ -100,6 +101,52 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class RegisterTask extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String result = null;
+
+            result = CustomHttpClient.executeHttpPost(params[0], params[1]);
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if (result != null) {
+//TEST
+                Log.e("JLJKLJ", result);
+
+                String response = new Gson().fromJson(result, String.class);
+                if (response.equals(Constants._REGISTER_SUCCESS_)) {
+
+                    new AlertDialog.Builder(RegisterActivity.this)
+                            .setTitle("Success!")
+                            .setMessage(R.string.register_success_message)
+                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+
+                } else {
+                    new AlertDialog.Builder(RegisterActivity.this)
+                            .setTitle("Oops")
+                            .setMessage(R.string.register_fail_message)
+                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                }
+            }
+        }
     }
 }
 

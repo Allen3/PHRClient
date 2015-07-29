@@ -16,10 +16,10 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 
+import cn.com.mars.allen.phrclient.Beans.PersonInfo;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
-import cn.com.mars.allen.phrclient.Util.PersonInfo;
 
 public class RegisterActivity extends AppCompatActivity {
     private final String SERVLET_TAG = "registerServlet";

@@ -34,6 +34,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cn.com.mars.allen.phrclient.Activity.LoginActivity" />
         </activity>
+        <activity
+            android:name=".Activity.NewsActivity"
+            android:label="@string/title_activity_news"
+            android:parentActivityName=".Activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.HandleNewsActivity"
+            android:label="@string/title_activity_handle_news"
+            android:parentActivityName=".Activity.NewsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.NewsActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.NewsContentActivity"
+            android:label="@string/title_activity_news_content"
+            android:parentActivityName=".Activity.HandleNewsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.HandleNewsActivity" />
+        </activity>
     </application>
 
 </manifest>

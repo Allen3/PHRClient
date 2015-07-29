@@ -1,4 +1,4 @@
-package cn.com.mars.allen.phrclient.Util;
+package cn.com.mars.allen.phrclient.Beans;
 
 /**
  * Created by Allen on 2015/7/27.

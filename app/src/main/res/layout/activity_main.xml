@@ -1,23 +1,304 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#3399ff"
+        >
 
-    <Button
-        android:id="@+id/redirect_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Redirect" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="PHR个人健康"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:background="#00000000"
+            />
 
-</RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            >
+
+            <RelativeLayout
+                android:id="@+id/registerback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+                <ImageView
+                    android:id="@+id/registericon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_register"
+                    />
+
+                <TextView
+                    android:id="@+id/registertext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/registericon"
+                    android:layout_centerInParent="true"
+                    android:text="挂号"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/messageback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+                <ImageView
+                    android:id="@+id/messageicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_message"
+                    />
+
+                <TextView
+                    android:id="@+id/messagetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/messageicon"
+                    android:layout_centerInParent="true"
+                    android:text="资讯"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/moremainback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+                <ImageView
+                    android:id="@+id/moremainicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_moremain"
+                    />
+
+                <TextView
+                    android:id="@+id/moremaintext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/moremainicon"
+                    android:layout_centerInParent="true"
+                    android:text="VIP"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/comingsoonback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+                <ImageView
+                    android:id="@+id/comingsoonicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_comingsoon"
+                    />
+
+                <TextView
+                    android:id="@+id/comingsoontext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/comingsoonicon"
+                    android:layout_centerInParent="true"
+                    android:text="敬请期待"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/familygroupback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/mycasesback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:id="@+id/firstpageback"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <ImageView
+                android:id="@+id/firstpageicon"
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dip"
+                android:src="@drawable/ic_firstpage"
+                />
+
+            <TextView
+                android:id="@+id/firstpagetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/firstpageicon"
+                android:layout_alignLeft="@+id/firstpageicon"
+                android:layout_alignRight="@+id/firstpageicon"
+                android:text="首页"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mineback"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <ImageView
+                android:id="@+id/mineicon"
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dip"
+                android:src="@drawable/ic_mine"
+                />
+
+            <TextView
+                android:id="@+id/minetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mineicon"
+                android:layout_alignLeft="@+id/mineicon"
+                android:layout_alignRight="@+id/mineicon"
+                android:text="我的"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/moreback"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <ImageView
+                android:id="@+id/moreicon"
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dip"
+                android:src="@drawable/ic_more"
+                />
+
+            <TextView
+                android:id="@+id/moretext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/moreicon"
+                android:layout_alignLeft="@+id/moreicon"
+                android:layout_alignRight="@+id/moreicon"
+                android:text="更多"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

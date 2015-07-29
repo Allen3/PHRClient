@@ -1,5 +1,6 @@
 package cn.com.mars.allen.phrclient.Activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import cn.com.mars.allen.phrclient.Beans.PersonInfo;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
+import cn.com.mars.allen.phrclient.Util.LOC_DatabaseHandler;
 
 public class LoginActivity extends AppCompatActivity {
     private final String SERVLET_TAG = "loginServlet";
@@ -91,8 +93,8 @@ public class LoginActivity extends AppCompatActivity {
 
             if (result != null) {
 
-                PersonInfo response = new Gson().fromJson(result, PersonInfo.class);
-                if (response.getPerson_id().equals(Constants._LOGIN_FAIL_)) {
+                PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
+                if (personInfo.getPerson_id().equals(Constants._LOGIN_FAIL_)) {
 
                     new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Oops")
@@ -104,10 +106,33 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }).show();
                 } else {
-                    // TODO
-                    // successfully login.
-                    Log.e("Success............", "Blablablabla");
+                    LOC_DatabaseHandler loc_databaseHandler = new LOC_DatabaseHandler(LoginActivity.this);
 
+                    // Write into local database.
+                    loc_databaseHandler.insertPersonInfo(personInfo);
+
+                    new AlertDialog.Builder(LoginActivity.this)
+                            .setTitle("Success")
+                            .setMessage(R.string.login_success_message)
+                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+
+                    Intent resultIntent = new Intent(LoginActivity.this, MainActivity.class);
+
+                    /**
+                     * First content for log, second for vip.
+                     */
+                    boolean[] isLogAndVip = new boolean[2];
+                    isLogAndVip[0] = true;;
+                    isLogAndVip[1] = (personInfo.getVip() == 1);
+                    resultIntent.putExtra("isLogAndVip", isLogAndVip);
+                    setResult(Activity.RESULT_OK, resultIntent);
+
+                    finish();
                 }
             }
 

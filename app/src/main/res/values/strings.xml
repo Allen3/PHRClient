@@ -24,4 +24,7 @@
     <string name="register_novip_message">请选择是否VIP</string>
     <string name="register_multibloodtype_message">只能选择一种血型</string>
     <string name="register_nobloodtype_message">请选择血型</string>
+    <string name="login_success_message">登录成功</string>
+    <string name="login">登录</string>
+    <string name="mine">我的</string>
 </resources>

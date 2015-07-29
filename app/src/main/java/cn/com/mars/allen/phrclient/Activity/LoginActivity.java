@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (result != null) {
 
-                PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
+                final PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
                 if (personInfo.getPerson_id().equals(Constants._LOGIN_FAIL_)) {
 
                     new AlertDialog.Builder(LoginActivity.this)
@@ -106,10 +106,14 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }).show();
                 } else {
-                    LOC_DatabaseHandler loc_databaseHandler = new LOC_DatabaseHandler(LoginActivity.this);
+                    //LOC_DatabaseHandler loc_databaseHandler = new LOC_DatabaseHandler(LoginActivity.this);
 
                     // Write into local database.
-                    loc_databaseHandler.insertPersonInfo(personInfo);
+                    //loc_databaseHandler.insertPersonInfo(personInfo);
+
+                    // TODO
+                    // Save personinfo to local files.
+
 
                     new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Success")
@@ -118,21 +122,23 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
+
+                                    Intent resultIntent = new Intent(LoginActivity.this, MainActivity.class);
+
+                                    /**
+                                     * First content for log, second for vip.
+                                     */
+                                    boolean[] isLogAndVip = new boolean[2];
+                                    isLogAndVip[0] = true;;
+                                    isLogAndVip[1] = (personInfo.getVip() == 1);
+                                    resultIntent.putExtra("isLogAndVip", isLogAndVip);
+                                    setResult(Activity.RESULT_OK, resultIntent);
+
+                                    finish();
                                 }
                             }).show();
 
-                    Intent resultIntent = new Intent(LoginActivity.this, MainActivity.class);
 
-                    /**
-                     * First content for log, second for vip.
-                     */
-                    boolean[] isLogAndVip = new boolean[2];
-                    isLogAndVip[0] = true;;
-                    isLogAndVip[1] = (personInfo.getVip() == 1);
-                    resultIntent.putExtra("isLogAndVip", isLogAndVip);
-                    setResult(Activity.RESULT_OK, resultIntent);
-
-                    finish();
                 }
             }
 

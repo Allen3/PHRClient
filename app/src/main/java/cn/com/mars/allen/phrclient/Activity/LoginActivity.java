@@ -19,16 +19,20 @@ import com.google.gson.Gson;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import cn.com.mars.allen.phrclient.Beans.PersonInfo;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
-import cn.com.mars.allen.phrclient.Util.LOC_DatabaseHandler;
 
 public class LoginActivity extends AppCompatActivity {
     private final String SERVLET_TAG = "loginServlet";
+
+    private AlertDialog loadingDialog;
 
     private EditText editText_ID;
     private EditText editText_password;
@@ -54,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
                 String passwordField = editText_password.getText().toString();
 
                 new LoginTask().execute(Constants.PATH + SERVLET_TAG, idField, passwordField);
+
+                loadingDialog = new AlertDialog.Builder(LoginActivity.this)
+                        .setTitle("Loading")
+                        .setMessage(R.string.loading_information)
+                        .show();
             }
         });
 
@@ -73,10 +82,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private class LoginTask extends AsyncTask<String, String, String> {
+    private class LoginTask extends AsyncTask<String, String, Boolean> {
+
 
         @Override
-        protected String doInBackground(String... params) {
+        protected Boolean doInBackground(String... params) {
             String result = null;
 
             ArrayList<NameValuePair> parameters = new ArrayList<>();
@@ -84,62 +94,63 @@ public class LoginActivity extends AppCompatActivity {
             parameters.add(new BasicNameValuePair(Constants.PASSWORD, params[2]));
             result = CustomHttpClient.executeHttpGet(params[0], parameters);
 
-            return result;
+            if (result != null) {
+                final PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
+                if (!personInfo.getPerson_id().equals(Constants._LOGIN_FAIL_)) {
+
+                    try {
+                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(Constants.LOC_FILE_PERSONINFO, MODE_PRIVATE));
+                        outputStreamWriter.write(result);
+                        outputStreamWriter.close();
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    return false;
+                }
+            }
+            return true;
         }
 
         @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
+        protected void onPostExecute(Boolean isLoginFail) {
+            super.onPostExecute(isLoginFail);
 
-            if (result != null) {
+            loadingDialog.dismiss();
+            if (isLoginFail) {
+                new AlertDialog.Builder(LoginActivity.this)
+                        .setTitle("Oops")
+                        .setMessage(R.string.login_fail_message)
+                        .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            } else {
 
-                final PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
-                if (personInfo.getPerson_id().equals(Constants._LOGIN_FAIL_)) {
+                //LOC_DatabaseHandler loc_databaseHandler = new LOC_DatabaseHandler(LoginActivity.this);
 
-                    new AlertDialog.Builder(LoginActivity.this)
-                            .setTitle("Oops")
-                            .setMessage(R.string.login_fail_message)
-                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                } else {
-                    //LOC_DatabaseHandler loc_databaseHandler = new LOC_DatabaseHandler(LoginActivity.this);
+                // Write into local database.
+                //loc_databaseHandler.insertPersonInfo(personInfo);
 
-                    // Write into local database.
-                    //loc_databaseHandler.insertPersonInfo(personInfo);
+                new AlertDialog.Builder(LoginActivity.this)
+                        .setTitle("Success")
+                        .setMessage(R.string.login_success_message)
+                        .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
 
-                    // TODO
-                    // Save personinfo to local files.
+                                Intent resultIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                setResult(Activity.RESULT_OK, resultIntent);
 
-
-                    new AlertDialog.Builder(LoginActivity.this)
-                            .setTitle("Success")
-                            .setMessage(R.string.login_success_message)
-                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-
-                                    Intent resultIntent = new Intent(LoginActivity.this, MainActivity.class);
-
-                                    /**
-                                     * First content for log, second for vip.
-                                     */
-                                    boolean[] isLogAndVip = new boolean[2];
-                                    isLogAndVip[0] = true;;
-                                    isLogAndVip[1] = (personInfo.getVip() == 1);
-                                    resultIntent.putExtra("isLogAndVip", isLogAndVip);
-                                    setResult(Activity.RESULT_OK, resultIntent);
-
-                                    finish();
-                                }
-                            }).show();
-
-
-                }
+                                finish();
+                            }
+                        }).show();
             }
 
         }

@@ -10,6 +10,8 @@ import cn.com.mars.allen.phrclient.Beans.PersonInfo;
 /**
  * Created by Allen on 2015/7/29.
  */
+
+
 public class LOC_DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
@@ -21,6 +23,8 @@ public class LOC_DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        /*
         String SQL_CREATE_TABLE = "CREATE TABLE " + Constants.LOC_DB_TABLE_PERSON + " (" +
                 Constants.PERSON_ID + " TEXT PRIMARY KEY," +
                 Constants.NAME + " TEXT," +
@@ -33,14 +37,17 @@ public class LOC_DatabaseHandler extends SQLiteOpenHelper {
                 Constants.GROUP_ID + " INTEGER" +
                 " )";
         db.execSQL(SQL_CREATE_TABLE);
+        */
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        /*
         String SQL_DELETE_TABLE =
                 "DROP TABLE IF EXISTS " + Constants.LOC_DB_TABLE_PERSON;
         db.execSQL(SQL_DELETE_TABLE);
         onCreate(db);
+        */
     }
 
     public void dropTable(String tableName) {
@@ -53,6 +60,7 @@ public class LOC_DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    /*
     public void insertPersonInfo(PersonInfo personInfo) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -70,4 +78,5 @@ public class LOC_DatabaseHandler extends SQLiteOpenHelper {
         db.insert(Constants.LOC_DB_TABLE_PERSON, null, values);
         db.close();
     }
+    */
 }

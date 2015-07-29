@@ -4,7 +4,10 @@ package cn.com.mars.allen.phrclient.Util;
  * Created by Allen on 2015/7/27.
  */
 public class Constants {
+    //  Information on local machine.
     public static final String PATH = "http://192.168.1.110:8080/";
+    public static final String LOC_DB_NAME = "phr.db";
+    public static final String LOC_FILE_PERSONINFO = "personinfo.json";
 
     //  Login Module.
     public static final String _LOGIN_SUCCESS_ = "_LOGIN_SUCCESS_";
@@ -64,6 +67,4 @@ public class Constants {
     public static final String EQUIP_ID = "equip_id";
     public static final String EQUIP_NAME = "equip_name";
     public static final String EQUIP_PRICE = "equip_price";
-    public static final String LOC_DB_NAME = "phr.db";
-    public static final String LOC_DB_TABLE_PERSON = "personinfo";
 }

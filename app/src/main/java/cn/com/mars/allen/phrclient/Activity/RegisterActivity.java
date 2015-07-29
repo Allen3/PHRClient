@@ -2,13 +2,10 @@ package cn.com.mars.allen.phrclient.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,8 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-        // TODO
-        // Obtain the reference for these UI components.
         editText_person_id = (EditText) findViewById(R.id.register_person_id);
         editText_password = (EditText) findViewById(R.id.register_password);
         editText_name = (EditText) findViewById(R.id.register_name);
@@ -76,29 +71,29 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (checkRadioButtonSelection()) {
-                    int gender = radioButton_gender_male.isActivated() ? 0 : 1;
-                    int vip = radioButton_vip_false.isActivated() ? 0 : 1;
+                    int gender = radioButton_gender_male.isChecked() ? 0 : 1;
+                    int vip = radioButton_vip_false.isChecked() ? 0 : 1;
                     String bloodType = null;
-                    if (radioButton_bloodtype[0].isActivated()) {
+                    if (radioButton_bloodtype[0].isChecked()) {
                         bloodType = "A";
-                    } else if (radioButton_bloodtype[1].isActivated()) {
+                    } else if (radioButton_bloodtype[1].isChecked()) {
                         bloodType = "B";
-                    } else if (radioButton_bloodtype[2].isActivated()) {
+                    } else if (radioButton_bloodtype[2].isChecked()) {
                         bloodType = "AB";
-                    } else if (radioButton_bloodtype[3].isActivated()) {
+                    } else if (radioButton_bloodtype[3].isChecked()) {
                         bloodType = "O";
                     }
 
                     PersonInfo personInfo = new PersonInfo(
-                            editText_person_id.toString(),
-                            editText_password.toString(),
-                            editText_name.toString(),
+                            editText_person_id.getText().toString(),
+                            editText_password.getText().toString(),
+                            editText_name.getText().toString(),
                             gender,
-                            Integer.valueOf(editText_age.toString()),
-                            editText_phone.toString(),
+                            Integer.parseInt(editText_age.getText().toString()),
+                            editText_phone.getText().toString(),
                             vip,
                             bloodType,
-                            Integer.valueOf(editText_group_id.toString())
+                            Integer.parseInt(editText_group_id.getText().toString())
                     );
                     String json = new Gson().toJson(personInfo);
 
@@ -110,22 +105,18 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        button_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
     private boolean checkRadioButtonSelection() {
-        if (radioButton_gender_male.isActivated() && radioButton_gender_female.isActivated()) {
-            new AlertDialog.Builder(RegisterActivity.this)
-                    .setTitle("Oops")
-                    .setMessage(R.string.register_multigender_message)
-                    .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).show();
-            return false;
-        } else if (!radioButton_gender_male.isActivated() && !radioButton_gender_female.isActivated()) {
+        
+        if (!radioButton_gender_male.isChecked() && !radioButton_gender_female.isChecked()) {
             new AlertDialog.Builder(RegisterActivity.this)
                     .setTitle("Oops")
                     .setMessage(R.string.register_nogender_message)
@@ -138,18 +129,7 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }
 
-        if (radioButton_vip_true.isActivated() && radioButton_vip_false.isActivated()) {
-            new AlertDialog.Builder(RegisterActivity.this)
-                    .setTitle("Oops")
-                    .setMessage(R.string.register_multivip_message)
-                    .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).show();
-            return false;
-        } else if (!radioButton_vip_true.isActivated() && !radioButton_vip_false.isActivated()) {
+        if (!radioButton_vip_true.isChecked() && !radioButton_vip_false.isChecked()) {
             new AlertDialog.Builder(RegisterActivity.this)
                     .setTitle("Oops")
                     .setMessage(R.string.register_novip_message)
@@ -162,26 +142,14 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }
 
-
-        int bloodTypeCnt = 0;
+        boolean bloodTypeSelected = false;
         for (RadioButton radioButton : radioButton_bloodtype) {
-            if (radioButton.isActivated()) {
-                bloodTypeCnt++;
-                if (bloodTypeCnt > 1) {
-                    new AlertDialog.Builder(RegisterActivity.this)
-                            .setTitle("Oops")
-                            .setMessage(R.string.register_multibloodtype_message)
-                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    return false;
-                }
+            if (radioButton.isChecked()) {
+                bloodTypeSelected = true;
+                break;
             }
         }
-        if (bloodTypeCnt == 0) {
+        if (!bloodTypeSelected) {
             new AlertDialog.Builder(RegisterActivity.this)
                     .setTitle("Oops")
                     .setMessage(R.string.register_nobloodtype_message)

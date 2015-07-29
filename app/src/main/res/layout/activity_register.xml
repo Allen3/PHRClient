@@ -56,7 +56,7 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="身份证"
+                android:text="帐号"
                 android:textSize="20dp"
                 android:gravity="center"/>
 
@@ -136,23 +136,32 @@
                 android:textSize="20dp"
                 android:gravity="center"/>
 
-            <RadioButton
-                android:id="@+id/register_gender_male"
-                android:layout_width="0dip"
+            <RadioGroup
+                android:id="@+id/registeredsex"
+                android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="2"
-                android:text="男"
-                android:textSize="20dp"
-                />
+                android:layout_weight="4"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/register_gender_female"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="2"
-                android:text="女"
-                android:textSize="20dp"
-                />
+                <RadioButton
+                    android:id="@+id/register_gender_male"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="男"
+                    android:textSize="20dp"
+                    />
+
+                <RadioButton
+                    android:id="@+id/register_gender_female"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="女"
+                    android:textSize="20dp"
+                    />
+
+            </RadioGroup>
 
         </LinearLayout>
 
@@ -222,23 +231,32 @@
                 android:textSize="20dp"
                 android:gravity="center"/>
 
-            <RadioButton
-                android:id="@+id/register_vip_true"
+            <RadioGroup
+                android:id="@+id/registeredvip"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
-                android:layout_weight="2"
-                android:text="是"
-                android:textSize="20dp"
-                />
+                android:layout_weight="4"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/register_vip_false"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="2"
-                android:text="否"
-                android:textSize="20dp"
-                />
+                <RadioButton
+                    android:id="@+id/register_vip_true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="是"
+                    android:textSize="20dp"
+                    />
+
+                <RadioButton
+                    android:id="@+id/register_vip_false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="否"
+                    android:textSize="20dp"
+                    />
+
+            </RadioGroup>
 
         </LinearLayout>
 
@@ -258,41 +276,50 @@
                 android:textSize="20dp"
                 android:gravity="center"/>
 
-            <RadioButton
-                android:id="@+id/register_bloodtype_A"
+            <RadioGroup
+                android:id="@+id/registeredblood"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="A"
-                android:textSize="20dp"
-                />
+                android:layout_weight="4"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/register_bloodtype_B"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="B"
-                android:textSize="20dp"
-                />
+                <RadioButton
+                    android:id="@+id/register_bloodtype_A"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="A"
+                    android:textSize="20dp"
+                    />
 
-            <RadioButton
-                android:id="@+id/register_bloodtype_AB"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="AB"
-                android:textSize="20dp"
-                />
+                <RadioButton
+                    android:id="@+id/register_bloodtype_B"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="B"
+                    android:textSize="20dp"
+                    />
 
-            <RadioButton
-                android:id="@+id/register_bloodtype_O"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="O"
-                android:textSize="20dp"
-                />
+                <RadioButton
+                    android:id="@+id/register_bloodtype_AB"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="AB"
+                    android:textSize="20dp"
+                    />
+
+                <RadioButton
+                    android:id="@+id/register_bloodtype_O"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="O"
+                    android:textSize="20dp"
+                    />
+
+            </RadioGroup>
 
         </LinearLayout>
 

@@ -64,4 +64,6 @@ public class Constants {
     public static final String EQUIP_ID = "equip_id";
     public static final String EQUIP_NAME = "equip_name";
     public static final String EQUIP_PRICE = "equip_price";
+    public static final String LOC_DB_NAME = "phr.db";
+    public static final String LOC_DB_TABLE_PERSON = "personinfo";
 }

@@ -257,7 +257,7 @@
                 />
 
             <TextView
-                android:id="@+id/minetext"
+                android:id="@+id/main_minetext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mineicon"

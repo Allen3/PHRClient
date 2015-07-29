@@ -17,4 +17,11 @@
     <string name="title_activity_handle_news">HandleNewsActivity</string>
     <string name="title_activity_news_content">NewsContentActivity</string>
     <string name="loading_information">正在获取数据</string>
+    <string name="MyInfo">我的</string>
+    <string name="register_multigender_message">只能选择一种性别</string>
+    <string name="register_nogender_message">请选择性别</string>
+    <string name="register_multivip_message">只能选择一个</string>
+    <string name="register_novip_message">请选择是否VIP</string>
+    <string name="register_multibloodtype_message">只能选择一种血型</string>
+    <string name="register_nobloodtype_message">请选择血型</string>
 </resources>

@@ -26,13 +26,13 @@ import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
 
 public class LoginActivity extends AppCompatActivity {
-    public static final int REGISTER_ACTIVITY_TOKEN = 1;
     private final String SERVLET_TAG = "loginServlet";
 
     private EditText editText_ID;
     private EditText editText_password;
     private Button button_confirm;
     private Button button_register;
+    private Button button_cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         editText_password = (EditText) findViewById(R.id.password_field);
         button_confirm = (Button) findViewById(R.id.button_confirm);
         button_register = (Button) findViewById(R.id.button_register);
+        button_cancel = (Button) findViewById(R.id.button_cancel);
 
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        button_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -82,8 +90,6 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (result != null) {
-//TEST
-                Log.e("JLJKLJ", result);
 
                 PersonInfo response = new Gson().fromJson(result, PersonInfo.class);
                 if (response.getPerson_id().equals(Constants._LOGIN_FAIL_)) {

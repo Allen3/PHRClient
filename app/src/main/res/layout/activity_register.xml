@@ -1,12 +1,339 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="cn.com.mars.allen.phrclient.Activity.RegisterActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="#3399ff"
+        >
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/register_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:text="返回"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="注册"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/loginregister"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="20dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="身份证"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/register_person_id"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="65dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="密码"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/register_password"
+                android:password="true"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="110dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="姓名"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/register_name"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="155dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="性别"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/register_gender_male"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="男"
+                android:textSize="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/register_gender_female"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="女"
+                android:textSize="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="200dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="年龄"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/register_age"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="245dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="电话"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/register_phone"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="290dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="VIP"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/register_vip_true"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="是"
+                android:textSize="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/register_vip_false"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="否"
+                android:textSize="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="335dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="血型"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/register_bloodtype_A"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="A"
+                android:textSize="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/register_bloodtype_B"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="B"
+                android:textSize="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/register_bloodtype_AB"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="AB"
+                android:textSize="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/register_bloodtype_O"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="O"
+                android:textSize="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loginaccount"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dip"
+            android:layout_marginTop="380dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="家庭群组号"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/register_groupid"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/register_confirm"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginRight="80dip"
+            android:layout_marginTop="450dip"
+            android:background="#cc99cc"
+            android:text="注册"
+            android:textSize="20dip"
+            android:textColor="#ffffff"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

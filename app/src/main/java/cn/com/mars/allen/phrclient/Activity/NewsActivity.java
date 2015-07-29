@@ -28,10 +28,7 @@ public class NewsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent intent=new Intent(NewsActivity.this,MainActivity.class);
                 finish();
-
             }
         });
         btn1.setOnClickListener(new View.OnClickListener() {

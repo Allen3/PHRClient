@@ -263,7 +263,7 @@
                 android:layout_below="@+id/mineicon"
                 android:layout_alignLeft="@+id/mineicon"
                 android:layout_alignRight="@+id/mineicon"
-                android:text="我的"
+                android:text="@string/MyInfo"
                 android:gravity="center"
                 />
 

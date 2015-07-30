@@ -58,6 +58,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cn.com.mars.allen.phrclient.Activity.HandleNewsActivity" />
         </activity>
+        <activity
+            android:name=".Activity.DiagnoseHospital"
+            android:label="@string/title_activity_diagnose_hospital"
+            android:parentActivityName=".Activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.DiagnoseDepartmentActivity"
+            android:label="@string/title_activity_diagnose_department"
+            android:parentActivityName=".Activity.DiagnoseHospital" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.DiagnoseHospital" />
+        </activity>
+        <activity
+            android:name=".Activity.DiagnoseDoctorActivity"
+            android:label="@string/title_activity_diagnose_doctor"
+            android:parentActivityName=".Activity.DiagnoseDepartmentActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.DiagnoseDepartmentActivity" />
+        </activity>
     </application>
 
 </manifest>

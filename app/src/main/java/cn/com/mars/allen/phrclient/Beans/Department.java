@@ -34,4 +34,9 @@ public class Department {
     public Integer getHid() {
         return hid;
     }
+
+    @Override
+    public String toString() {
+        return dep_name;
+    }
 }

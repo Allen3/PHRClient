@@ -27,4 +27,10 @@
     <string name="login_success_message">登录成功</string>
     <string name="login">登录</string>
     <string name="mine">我的</string>
+    <string name="title_activity_diagnose_hospital">DiagnoseHospital</string>
+    <string name="title_activity_diagnose_department">DiagnoseDepartmentActivity</string>
+    <string name="title_activity_diagnose_doctor">DiagnoseDoctorActivity</string>
+    <string name="not_login_message">请先登录</string>
+    <string name="diagnose_confirm_message">确认是否要进行挂号</string>
+    <string name="diaglog_cancel">取消</string>
 </resources>

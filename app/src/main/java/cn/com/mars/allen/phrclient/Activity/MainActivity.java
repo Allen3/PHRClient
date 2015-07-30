@@ -1,6 +1,8 @@
 package cn.com.mars.allen.phrclient.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -35,26 +37,52 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout newsModule;
     private RelativeLayout vipModule;
     private RelativeLayout mineModule;
+    private RelativeLayout diagnoseModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        diagnoseModule = (RelativeLayout) findViewById(R.id.diagnoseback);
         newsModule = (RelativeLayout) findViewById(R.id.messageback);
         vipModule = (RelativeLayout) findViewById(R.id.moremainback);
         mineModule = (RelativeLayout) findViewById(R.id.mineback);
         mineTextView = (TextView) findViewById(R.id.main_minetext);
         if (!isLog) {
             mineTextView.setText(R.string.login);
+            diagnoseModule.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Oops")
+                            .setMessage(R.string.not_login_message)
+                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                }
+            });
+
         } else {
             mineTextView.setText(R.string.mine);
+            diagnoseModule.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, DiagnoseHospital.class);
+                    startActivity(intent);
+                }
+            });
         }
         if (!isVip) {
             mineModule.setClickable(false);
         } else {
             mineModule.setClickable(true);
         }
+
+
 
 
         newsModule.setOnClickListener(new View.OnClickListener() {
@@ -90,8 +118,14 @@ public class MainActivity extends AppCompatActivity {
 
                 isLog = true;
                 mineTextView.setText(R.string.mine);
-                //  TODO
-                // get data from personal info file.
+                mineTextView.setText(R.string.mine);
+                diagnoseModule.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, DiagnoseHospital.class);
+                        startActivity(intent);
+                    }
+                });
 
                 new ReadFileTask().execute();
 

@@ -88,17 +88,18 @@ public class CustomHttpClient {
         String Uri = null;
         httpClient = getHttpClient();
 
-        if (parameters.size() == 0) {
+        if (parameters == null) {
             Uri = url;
         } else {
             Uri = url + "?";
-        }
-        for (int i = 0;i < parameters.size();i ++) {
-            Uri += parameters.get(i).getName() + "=" + parameters.get(i).getValue();
-            if (i < parameters.size() - 1) {
-                Uri += "&";
+            for (int i = 0;i < parameters.size();i ++) {
+                Uri += parameters.get(i).getName() + "=" + parameters.get(i).getValue();
+                if (i < parameters.size() - 1) {
+                    Uri += "&";
+                }
             }
         }
+
 
         HttpGet httpGet = new HttpGet(Uri);
 

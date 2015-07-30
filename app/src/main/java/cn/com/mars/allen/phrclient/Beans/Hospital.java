@@ -43,4 +43,9 @@ public class Hospital {
     public String gethProfile() {
         return hProfile;
     }
+
+    @Override
+    public String toString() {
+        return "Name = " + hName + ", Address = " + hAddress;
+    }
 }

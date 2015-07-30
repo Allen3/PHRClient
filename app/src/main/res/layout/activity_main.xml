@@ -39,7 +39,7 @@
             >
 
             <RelativeLayout
-                android:id="@+id/registerback"
+                android:id="@+id/diagnoseback"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"

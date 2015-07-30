@@ -1,12 +1,10 @@
 package cn.com.mars.allen.phrclient.Activity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,74 +22,68 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.com.mars.allen.phrclient.Beans.Hospital;
 import cn.com.mars.allen.phrclient.Beans.NewsInfo;
-import cn.com.mars.allen.phrclient.Beans.PersonInfo;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
 
-public class HandleNewsActivity extends AppCompatActivity {
+public class DiagnoseHospital extends AppCompatActivity {
+    private static final String SERVLET_TAG = "hospitalServlet";
 
-    private AlertDialog loadingDialog;
-    private ArrayList<NewsInfo> newsInfoList;
-    private static final String SERVLET_TAG = "newsServlet";
-    private String newsType = null;
     private ListView listView;
+    private ArrayList<Hospital> hospitalList;
+    private AlertDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_handle_news);
+        setContentView(R.layout.activity_diagnose_hospital);
 
-        Intent intent = getIntent();
-        newsType = intent.getStringExtra(Constants._NEWSTYPE_);
+        listView = (ListView)findViewById(R.id.hospitallstview);
+        Button bt=(Button)findViewById(R.id.hospital_back);
 
-        new ObtainNewsTask().execute(Constants.PATH + SERVLET_TAG);
+        new ObtainHospitalTask().execute(Constants.PATH + SERVLET_TAG);
 
-        listView = (ListView)findViewById(R.id.messagelistview);
-        Button bt=(Button)findViewById(R.id.message_list_back);
         bt.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View arg0) {
                 finish();
             }
         });
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent intent = new Intent(HandleNewsActivity.this, NewsContentActivity.class);
 
-                NewsInfo newsInfo = (NewsInfo) parent.getItemAtPosition(position);
-                intent.putExtra(Constants._NEWS_, new Gson().toJson(newsInfo));
+                Intent intent = new Intent(DiagnoseHospital.this, DiagnoseDepartmentActivity.class);
+
+                Hospital hospital = (Hospital) parent.getItemAtPosition(position);
+                intent.putExtra(Constants.HID, hospital.getHid().toString());
                 startActivity(intent);
             }
         });
 
-
-        loadingDialog = new AlertDialog.Builder(HandleNewsActivity.this)
+        loadingDialog = new AlertDialog.Builder(DiagnoseHospital.this)
                 .setTitle("Loading")
                 .setMessage(R.string.loading_information)
                 .show();
 
     }
 
-    private ArrayList<NewsInfo> getData() {
-        return newsInfoList;
+    private ArrayList<Hospital> getData() {
+        return hospitalList;
     }
 
-    private class ObtainNewsTask extends AsyncTask<String, String, String> {
+    private class ObtainHospitalTask extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... params) {
             String result = null;
 
-            ArrayList<NameValuePair> parameters = new ArrayList<>();
-            parameters.add(new BasicNameValuePair(Constants._NEWSTYPE_, newsType));
-            result = CustomHttpClient.executeHttpGet(params[0], parameters);
+            result = CustomHttpClient.executeHttpGet(params[0], null);
 
             return result;
         }
@@ -101,10 +93,10 @@ public class HandleNewsActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (result != null) {
-                newsInfoList = new Gson().fromJson(result, new TypeToken<ArrayList<NewsInfo>>(){}.getType());
+                hospitalList = new Gson().fromJson(result, new TypeToken<ArrayList<Hospital>>(){}.getType());
 
                 loadingDialog.dismiss();
-                listView.setAdapter(new ArrayAdapter<NewsInfo>(HandleNewsActivity.this, android.R.layout.simple_expandable_list_item_1, getData()));
+                listView.setAdapter(new ArrayAdapter<Hospital>(DiagnoseHospital.this, android.R.layout.simple_expandable_list_item_1, getData()));
             }
         }
     }

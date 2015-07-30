@@ -1,12 +1,10 @@
 package cn.com.mars.allen.phrclient.Activity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,73 +22,72 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.com.mars.allen.phrclient.Beans.NewsInfo;
-import cn.com.mars.allen.phrclient.Beans.PersonInfo;
+import cn.com.mars.allen.phrclient.Beans.Department;
+import cn.com.mars.allen.phrclient.Beans.Hospital;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
 
-public class HandleNewsActivity extends AppCompatActivity {
+public class DiagnoseDepartmentActivity extends AppCompatActivity {
+    private static final String SERVLET_TAG = "departmentServlet";
 
-    private AlertDialog loadingDialog;
-    private ArrayList<NewsInfo> newsInfoList;
-    private static final String SERVLET_TAG = "newsServlet";
-    private String newsType = null;
     private ListView listView;
+    private ArrayList<Department> departmentList;
+    private AlertDialog loadingDialog;
+    private String hid = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_handle_news);
+        setContentView(R.layout.activity_diagnose_department);
 
         Intent intent = getIntent();
-        newsType = intent.getStringExtra(Constants._NEWSTYPE_);
+        hid = intent.getStringExtra(Constants.HID);
 
-        new ObtainNewsTask().execute(Constants.PATH + SERVLET_TAG);
+        listView=(ListView)findViewById(R.id.departmentlistview);
+        Button bt=(Button)findViewById(R.id.department_back);
 
-        listView = (ListView)findViewById(R.id.messagelistview);
-        Button bt=(Button)findViewById(R.id.message_list_back);
+        new ObtainDepartmentTask().execute(Constants.PATH + SERVLET_TAG);
+
         bt.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent intent = new Intent(HandleNewsActivity.this, NewsContentActivity.class);
 
-                NewsInfo newsInfo = (NewsInfo) parent.getItemAtPosition(position);
-                intent.putExtra(Constants._NEWS_, new Gson().toJson(newsInfo));
+                Intent intent = new Intent(DiagnoseDepartmentActivity.this, DiagnoseDoctorActivity.class);
+
+                Department department = (Department) parent.getItemAtPosition(position);
+                intent.putExtra(Constants.DEP_ID, department.getDep_id().toString());
+
                 startActivity(intent);
             }
         });
 
-
-        loadingDialog = new AlertDialog.Builder(HandleNewsActivity.this)
+        loadingDialog = new AlertDialog.Builder(DiagnoseDepartmentActivity.this)
                 .setTitle("Loading")
                 .setMessage(R.string.loading_information)
                 .show();
-
     }
 
-    private ArrayList<NewsInfo> getData() {
-        return newsInfoList;
+    private ArrayList<Department> getData() {
+        return departmentList;
     }
 
-    private class ObtainNewsTask extends AsyncTask<String, String, String> {
+    private class ObtainDepartmentTask extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... params) {
             String result = null;
 
             ArrayList<NameValuePair> parameters = new ArrayList<>();
-            parameters.add(new BasicNameValuePair(Constants._NEWSTYPE_, newsType));
+            parameters.add(new BasicNameValuePair(Constants.HID, hid));
             result = CustomHttpClient.executeHttpGet(params[0], parameters);
 
             return result;
@@ -101,10 +98,10 @@ public class HandleNewsActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (result != null) {
-                newsInfoList = new Gson().fromJson(result, new TypeToken<ArrayList<NewsInfo>>(){}.getType());
+                departmentList = new Gson().fromJson(result, new TypeToken<ArrayList<Department>>(){}.getType());
 
                 loadingDialog.dismiss();
-                listView.setAdapter(new ArrayAdapter<NewsInfo>(HandleNewsActivity.this, android.R.layout.simple_expandable_list_item_1, getData()));
+                listView.setAdapter(new ArrayAdapter<Department>(DiagnoseDepartmentActivity.this, android.R.layout.simple_expandable_list_item_1, getData()));
             }
         }
     }

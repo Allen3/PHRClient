@@ -52,4 +52,9 @@ public class Doctor {
     public String getDoc_phone() {
         return doc_phone;
     }
+
+    @Override
+    public String toString() {
+        return "Name:" + doc_name + "  Phone: " + doc_phone;
+    }
 }

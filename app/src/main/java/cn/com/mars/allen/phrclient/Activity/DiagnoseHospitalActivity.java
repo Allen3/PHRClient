@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,19 +14,14 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import cn.com.mars.allen.phrclient.Beans.Hospital;
-import cn.com.mars.allen.phrclient.Beans.NewsInfo;
 import cn.com.mars.allen.phrclient.R;
 import cn.com.mars.allen.phrclient.Util.Constants;
 import cn.com.mars.allen.phrclient.Util.CustomHttpClient;
 
-public class DiagnoseHospital extends AppCompatActivity {
+public class DiagnoseHospitalActivity extends AppCompatActivity {
     private static final String SERVLET_TAG = "hospitalServlet";
 
     private ListView listView;
@@ -59,7 +52,7 @@ public class DiagnoseHospital extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                Intent intent = new Intent(DiagnoseHospital.this, DiagnoseDepartmentActivity.class);
+                Intent intent = new Intent(DiagnoseHospitalActivity.this, DiagnoseDepartmentActivity.class);
 
                 Hospital hospital = (Hospital) parent.getItemAtPosition(position);
                 intent.putExtra(Constants.HID, hospital.getHid().toString());
@@ -67,7 +60,7 @@ public class DiagnoseHospital extends AppCompatActivity {
             }
         });
 
-        loadingDialog = new AlertDialog.Builder(DiagnoseHospital.this)
+        loadingDialog = new AlertDialog.Builder(DiagnoseHospitalActivity.this)
                 .setTitle("Loading")
                 .setMessage(R.string.loading_information)
                 .show();
@@ -96,7 +89,7 @@ public class DiagnoseHospital extends AppCompatActivity {
                 hospitalList = new Gson().fromJson(result, new TypeToken<ArrayList<Hospital>>(){}.getType());
 
                 loadingDialog.dismiss();
-                listView.setAdapter(new ArrayAdapter<Hospital>(DiagnoseHospital.this, android.R.layout.simple_expandable_list_item_1, getData()));
+                listView.setAdapter(new ArrayAdapter<Hospital>(DiagnoseHospitalActivity.this, android.R.layout.simple_expandable_list_item_1, getData()));
             }
         }
     }

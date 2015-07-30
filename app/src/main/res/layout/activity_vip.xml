@@ -1,0 +1,308 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#3399ff">
+
+        <Button
+            android:id="@+id/vip_back"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="返回"
+            android:textSize="20dp"
+            android:background="#00000000"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="PHR个人健康"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:background="#00000000" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/healthycheckback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/healthycheckicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_healthycheck" />
+
+                <TextView
+                    android:id="@+id/healthychecktext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/healthycheckicon"
+                    android:layout_centerInParent="true"
+                    android:text="健康体检" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/privatedoctorback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/privatedoctoricon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_privatedoctor" />
+
+                <TextView
+                    android:id="@+id/privatedoctortext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/privatedoctoricon"
+                    android:layout_centerInParent="true"
+                    android:text="私人医生" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/healthindexback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/healthindexicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_healthindex" />
+
+                <TextView
+                    android:id="@+id/healthindextext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/healthindexicon"
+                    android:layout_centerInParent="true"
+                    android:text="健康指数" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/healthproback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/healthproicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_healthpro" />
+
+                <TextView
+                    android:id="@+id/healthprotext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/healthproicon"
+                    android:layout_centerInParent="true"
+                    android:text="健康促进" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/familygroupback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/familygroupicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_familygroup" />
+
+                <TextView
+                    android:id="@+id/familygrouptext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/familygroupicon"
+                    android:layout_centerInParent="true"
+                    android:text="家庭群组" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/mycasesback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/mycasesicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_mycases" />
+
+                <TextView
+                    android:id="@+id/mycasestext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mycasesicon"
+                    android:layout_centerInParent="true"
+                    android:text="我的病例夹" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/doctorremindback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/doctorremindicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_doctorremind" />
+
+                <TextView
+                    android:id="@+id/doctorremindtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/doctorremindicon"
+                    android:layout_centerInParent="true"
+                    android:text="就诊提醒" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/equipmentleaseback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/equipmentleaseicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_equipmentlease" />
+
+                <TextView
+                    android:id="@+id/equipmentleasetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/equipmentleaseicon"
+                    android:layout_centerInParent="true"
+                    android:text="设备租赁" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/nocback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/nocicon"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/ic_noc" />
+
+                <TextView
+                    android:id="@+id/noctext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nocicon"
+                    android:layout_centerInParent="true"
+                    android:text="在线咨询" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

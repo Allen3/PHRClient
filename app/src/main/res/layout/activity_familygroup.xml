@@ -12,7 +12,7 @@
         >
 
         <Button
-            android:id="@+id/department_back"
+            android:id="@+id/family_back"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -20,21 +20,22 @@
             android:textSize="20dp"
             android:background="#00000000"/>
         <TextView
-            android:id="@+id/hospitalname_dep"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="0.5"
+            android:text="家庭成员"
             android:textSize="30dp"
-            android:text="科室"
             android:gravity="center"
             android:background="#00000000"
             />
 
-        <TextView
-            android:id="@+id/hostipalintroduce"
+        <Button
+            android:id="@+id/family_add"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:text="添加"
+            android:textSize="20dp"
             android:background="#00000000"/>
 
     </LinearLayout>
@@ -47,10 +48,15 @@
         >
 
         <ListView
-            android:id="@+id/departmentlistview"
+            android:id="@+id/familylstview"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="400dip"
+            android:layout_marginTop="30dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            >
         </ListView>
+
     </RelativeLayout>
 
 </LinearLayout>

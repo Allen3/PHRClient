@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="#3399ff"
+        >
+
+        <Button
+            android:id="@+id/personaldata_back"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:text="返回"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="我的资料"
+            android:textSize="30sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        >
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="50dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="姓名"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalname"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="20sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="90dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="性别"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalsex"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="130dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="血型"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalblood"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="170dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="身份证"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalid"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="210dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="电话号"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/personalphone"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:background="@null"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="250dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="年龄"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalage"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="290dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="家庭群组"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalfamilyid"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="30dip"
+            android:layout_marginTop="330dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="VIP"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/personalvip"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:textSize="25sp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

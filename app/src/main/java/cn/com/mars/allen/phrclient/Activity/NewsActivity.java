@@ -35,7 +35,7 @@ public class NewsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 Intent intent=new Intent(NewsActivity.this,HandleNewsActivity.class);
                 intent.putExtra(Constants._NEWSTYPE_, Constants.HEALTH_NEWS);
                 startActivity(intent);
@@ -45,7 +45,7 @@ public class NewsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 Intent intent=new Intent(NewsActivity.this,HandleNewsActivity.class);
                 intent.putExtra(Constants._NEWSTYPE_, Constants.DRUG_NEWS);
                 startActivity(intent);
@@ -56,7 +56,7 @@ public class NewsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 Intent intent=new Intent(NewsActivity.this,HandleNewsActivity.class);
                 intent.putExtra(Constants._NEWSTYPE_, Constants.DISEASE_NEWS);
                 startActivity(intent);
@@ -67,7 +67,7 @@ public class NewsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 Intent intent=new Intent(NewsActivity.this,HandleNewsActivity.class);
                 intent.putExtra(Constants._NEWSTYPE_, Constants.IMMUNE_NEWS);
                 startActivity(intent);
@@ -78,7 +78,7 @@ public class NewsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 Intent intent=new Intent(NewsActivity.this,HandleNewsActivity.class);
                 intent.putExtra(Constants._NEWSTYPE_, Constants.NEWS_NEWS);
                 startActivity(intent);

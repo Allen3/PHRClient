@@ -34,4 +34,9 @@ public class Equipment {
     public String getEquip_price() {
         return equip_price;
     }
+
+    @Override
+    public String toString() {
+        return equip_name + '\n' + "价格:" + equip_price;
+    }
 }

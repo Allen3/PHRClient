@@ -59,7 +59,7 @@
                 android:value="cn.com.mars.allen.phrclient.Activity.HandleNewsActivity" />
         </activity>
         <activity
-            android:name=".Activity.DiagnoseHospital"
+            android:name=".Activity.DiagnoseHospitalActivity"
             android:label="@string/title_activity_diagnose_hospital"
             android:parentActivityName=".Activity.MainActivity" >
             <meta-data
@@ -69,10 +69,10 @@
         <activity
             android:name=".Activity.DiagnoseDepartmentActivity"
             android:label="@string/title_activity_diagnose_department"
-            android:parentActivityName=".Activity.DiagnoseHospital" >
+            android:parentActivityName=".Activity.DiagnoseHospitalActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="cn.com.mars.allen.phrclient.Activity.DiagnoseHospital" />
+                android:value=".Activity.DiagnoseHospitalActivity" />
         </activity>
         <activity
             android:name=".Activity.DiagnoseDoctorActivity"
@@ -81,6 +81,126 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cn.com.mars.allen.phrclient.Activity.DiagnoseDepartmentActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.VipActivity"
+            android:label="@string/title_activity_vip"
+            android:parentActivityName=".Activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.BodyCheckActivity"
+            android:label="@string/title_activity_body_check"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.PersonalDoctorActivity"
+            android:label="@string/title_activity_personal_doctor"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.PersonalDoctorDetailActivity"
+            android:label="@string/title_activity_personal_doctor_detail"
+            android:parentActivityName=".Activity.PersonalDoctorActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.PersonalDoctorActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.HealthIndexActivity"
+            android:label="@string/title_activity_health_index"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.HealthImproveActivity"
+            android:label="@string/title_activity_health_improve"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.FamilygroupActivity"
+            android:label="@string/title_activity_familygroup"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.FamilyaddActivity"
+            android:label="@string/title_activity_familyadd"
+            android:parentActivityName=".Activity.FamilygroupActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.FamilygroupActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.MycaseActivity"
+            android:label="@string/title_activity_mycase"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.PromptActivity"
+            android:label="@string/title_activity_prompt"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.EquipmentActivity"
+            android:label="@string/title_activity_equipment"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.OnlineConsultActivity"
+            android:label="@string/title_activity_online_consult"
+            android:parentActivityName=".Activity.VipActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.VipActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.DiagnoseTableFillActivity"
+            android:label="@string/title_activity_diagnose_table_fill"
+            android:parentActivityName=".Activity.MycaseActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.DiagnoseDoctorActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.PersonHealthHistoryActivity"
+            android:label="@string/title_activity_person_health_history"
+            android:parentActivityName=".Activity.MycaseActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.MycaseActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.DisplayPersonInfo"
+            android:label="@string/title_activity_display_person_info"
+            android:parentActivityName=".Activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.com.mars.allen.phrclient.Activity.MainActivity" />
         </activity>
     </application>
 

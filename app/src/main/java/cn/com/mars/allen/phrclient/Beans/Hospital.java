@@ -46,6 +46,6 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return "Name = " + hName + ", Address = " + hAddress;
+        return hName + '\n' + hAddress;
     }
 }

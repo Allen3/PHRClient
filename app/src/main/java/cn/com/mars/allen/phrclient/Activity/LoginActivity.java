@@ -132,11 +132,6 @@ public class LoginActivity extends AppCompatActivity {
                         }).show();
             } else {
 
-                //LOC_DatabaseHandler loc_databaseHandler = new LOC_DatabaseHandler(LoginActivity.this);
-
-                // Write into local database.
-                //loc_databaseHandler.insertPersonInfo(personInfo);
-
                 new AlertDialog.Builder(LoginActivity.this)
                         .setTitle("Success")
                         .setMessage(R.string.login_success_message)

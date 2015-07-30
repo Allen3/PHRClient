@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import cn.com.mars.allen.phrclient.Beans.PersonInfo;
@@ -27,7 +25,6 @@ import cn.com.mars.allen.phrclient.Util.Constants;
 public class MainActivity extends AppCompatActivity {
 
     private static final int LOGINACTIVITY = 1;
-
 
     private boolean isLog = false;
     private boolean isVip = false;
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         diagnoseModule = (RelativeLayout) findViewById(R.id.diagnoseback);
         newsModule = (RelativeLayout) findViewById(R.id.messageback);
-        vipModule = (RelativeLayout) findViewById(R.id.moremainback);
+        vipModule = (RelativeLayout) findViewById(R.id.vipmainback);
         mineModule = (RelativeLayout) findViewById(R.id.mineback);
         mineTextView = (TextView) findViewById(R.id.main_minetext);
         if (!isLog) {
@@ -71,18 +68,37 @@ public class MainActivity extends AppCompatActivity {
             diagnoseModule.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, DiagnoseHospital.class);
+                    Intent intent = new Intent(MainActivity.this, DiagnoseHospitalActivity.class);
                     startActivity(intent);
                 }
             });
         }
         if (!isVip) {
-            mineModule.setClickable(false);
+
+            vipModule.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Oops")
+                            .setMessage(R.string.not_vip_message)
+                            .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                }
+            });
         } else {
             mineModule.setClickable(true);
+            vipModule.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, VipActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
-
-
 
 
         newsModule.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isLog) {
-                    // TODO
-                    // List personal information.
+                    Intent intent = new Intent(MainActivity.this, DisplayPersonInfo.class);
+                    startActivity(intent);
 
                 } else {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -107,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     @Override
@@ -122,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 diagnoseModule.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, DiagnoseHospital.class);
+                        Intent intent = new Intent(MainActivity.this, DiagnoseHospitalActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -160,12 +177,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            
-            final PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
 
-            if (personInfo.getVip() == 1) {
-                isVip = true;
-                mineModule.setClickable(true);
+            if (result != null) {
+                final PersonInfo personInfo = new Gson().fromJson(result, PersonInfo.class);
+
+                if (personInfo.getVip() == 1) {
+                    isVip = true;
+                    vipModule.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this, VipActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
             }
         }
     }

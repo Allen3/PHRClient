@@ -32,5 +32,26 @@
     <string name="title_activity_diagnose_doctor">DiagnoseDoctorActivity</string>
     <string name="not_login_message">请先登录</string>
     <string name="diagnose_confirm_message">确认是否要进行挂号</string>
-    <string name="diaglog_cancel">取消</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="not_vip_message">您不是VIP用户</string>
+    <string name="title_activity_vip">VipActivity</string>
+    <string name="title_activity_body_check">BodyCheckActivity</string>
+    <string name="whether_appointment_message">是否选择此医院预约体检</string>
+    <string name="title_activity_personal_doctor">PersonalDoctorActivity</string>
+    <string name="title_activity_personal_doctor_detail">PersonalDoctorDetailActivity</string>
+    <string name="title_activity_health_index">HealthIndexActivity</string>
+    <string name="title_activity_health_improve">HealthImproveActivity</string>
+    <string name="title_activity_familygroup">FamilygroupActivity</string>
+    <string name="title_activity_familyadd">FamilyaddActivity</string>
+    <string name="title_activity_mycase">MycaseActivity</string>
+    <string name="title_activity_prompt">PromptActivity</string>
+    <string name="title_activity_equipment">EquipmentActivity</string>
+    <string name="title_activity_online_consult">OnlineConsultActivity</string>
+    <string name="diagnose_success_message">挂号成功，请于诊断完成后在我的病例夹中填写诊断表</string>
+    <string name="diagnose_fail_message">挂号失败，请稍候再试</string>
+    <string name="title_activity_diagnose_table_fill">DiagnoseTableFillActivity</string>
+    <string name="submit_personhealth_success_message">提交诊断表成功</string>
+    <string name="submit_personhealth_fail_message">提交诊断表失败，请检查自己的表单</string>
+    <string name="title_activity_person_health_history">PersonHealthHistoryActivity</string>
+    <string name="title_activity_display_person_info">DisplayPersonInfo</string>
 </resources>

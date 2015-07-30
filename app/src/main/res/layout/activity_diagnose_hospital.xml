@@ -39,7 +39,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="8"
+        android:layout_weight="9"
         android:background="#e6e6fa"
         >
 
@@ -49,105 +49,5 @@
             android:layout_height="fill_parent">
         </ListView>
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:background="#ffffff"
-        android:orientation="horizontal"
-        >
-
-        <RelativeLayout
-            android:id="@+id/firstpageback"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:descendantFocusability="blocksDescendants">
-
-            <ImageView
-                android:id="@+id/firstpageicon"
-                android:layout_width="35dip"
-                android:layout_height="35dip"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dip"
-                android:src="@drawable/ic_firstpage"
-                />
-
-            <TextView
-                android:id="@+id/firstpagetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/firstpageicon"
-                android:layout_alignLeft="@+id/firstpageicon"
-                android:layout_alignRight="@+id/firstpageicon"
-                android:text="首页"
-                android:gravity="center"
-                />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/mineback"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:descendantFocusability="blocksDescendants">
-
-            <ImageView
-                android:id="@+id/mineicon"
-                android:layout_width="35dip"
-                android:layout_height="35dip"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dip"
-                android:src="@drawable/ic_mine"
-                />
-
-            <TextView
-                android:id="@+id/minetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mineicon"
-                android:layout_alignLeft="@+id/mineicon"
-                android:layout_alignRight="@+id/mineicon"
-                android:text="我的"
-                android:gravity="center"
-                />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/moreback"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:descendantFocusability="blocksDescendants">
-
-            <ImageView
-                android:id="@+id/moreicon"
-                android:layout_width="35dip"
-                android:layout_height="35dip"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dip"
-                android:src="@drawable/ic_more"
-                />
-
-            <TextView
-                android:id="@+id/moretext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/moreicon"
-                android:layout_alignLeft="@+id/moreicon"
-                android:layout_alignRight="@+id/moreicon"
-                android:text="更多"
-                android:gravity="center"
-                />
-
-        </RelativeLayout>
-
-    </LinearLayout>
 
 </LinearLayout>

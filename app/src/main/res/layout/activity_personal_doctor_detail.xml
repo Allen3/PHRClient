@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#3399ff"
+        >
+
+        <Button
+            android:id="@+id/doctorintroduction_back"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="返回"
+            android:textSize="20dp"
+            android:background="#00000000"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="医生简介"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:background="#00000000"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:background="#e6e6fa"
+        >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginTop="30dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:text="医生姓名"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/doctor_name"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginTop="60dip"
+            android:layout_marginLeft="60dip"
+            android:layout_marginRight="60dip"
+            android:background="#ffffff"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginTop="90dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:text="医生电话"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/doctor_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginTop="120dip"
+            android:layout_marginLeft="60dip"
+            android:layout_marginRight="60dip"
+            android:background="#ffffff"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginTop="180dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:text="医生简介"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/doctor_intro"
+            android:layout_width="fill_parent"
+            android:layout_height="240dip"
+            android:layout_marginTop="210dip"
+            android:layout_marginLeft="60dip"
+            android:layout_marginRight="60dip"
+            android:background="#ffffff"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

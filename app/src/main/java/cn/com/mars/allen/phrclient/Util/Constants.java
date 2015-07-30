@@ -1,5 +1,7 @@
 package cn.com.mars.allen.phrclient.Util;
 
+import cn.com.mars.allen.phrclient.Beans.PersonHealth;
+
 /**
  * Created by Allen on 2015/7/27.
  */
@@ -8,6 +10,8 @@ public class Constants {
     public static final String PATH = "http://192.168.1.105:8080/";
     public static final String LOC_DB_NAME = "phr.db";
     public static final String LOC_FILE_PERSONINFO = "personinfo.json";
+    public static final String LOC_FILE_DIAGNOSE = "diagnose.json";
+    public static final String LOC_FILE_PERSONHEALTH = "personHealth.json";
 
     //  Login Module.
     public static final String _LOGIN_SUCCESS_ = "_LOGIN_SUCCESS_";
@@ -16,6 +20,14 @@ public class Constants {
     //  Register Module.
     public static final String _REGISTER_SUCCESS_ = "_REGISTER__SUCCESS_";
     public static final String _REGISTER_FAIL_ = "_REGISTER_DENY_";
+
+    //  Diagnose Module.
+    public static final String _DIAGNOSE_SUCCESS_ = "_DIAGNOSE_SUCCESS_";
+    public static final String _DIAGNOSE_FAIL_ = "_DIAGNOSE_DENY_";
+
+    //  Submit Personhealth Module.
+    public static final String _SUBMIT_PERSONHEALTH_SUCCESS_ = "_SUBMIT_PERSONHEALTH_SUCCESS_";
+    public static final String _SUBMIT_PERSONHEALTH_FAIL_ = "_SUBMIT_PERSONHEALTH_DENY_";
 
     //  Database Table PersonInfo.
     public static final String PERSON_ID = "person_id";
@@ -57,6 +69,7 @@ public class Constants {
     //public static final String HID = "hid";               F.K.
 
     //  Database Table Doctor.
+    public static final String DOCTOR = "doctor";
     public static final String DOCTOR_ID = "doctor_id";
     public static final String DOC_NAME = "doc_name";
     //public static final String DEP_ID = "dep_id";           F.K.
@@ -69,10 +82,15 @@ public class Constants {
     public static final String EQUIP_PRICE = "equip_price";
 
     //  Database Table Person_Health
-    public static final String PERSON_HEALTH_ID = "person_health_id";
     public static final String PROMPT_DATE = "prompt_date";
     public static final String DRUG_NAME = "drug_name";
     public static final String DRUG_DOSE = "drug_dose";
     public static final String DIAG_DATE = "diag_date";
     //public static final String PERSON_ID = "person_id";       F.K.
+
+    //  Database Table Diagnose
+    public static final String DIAGNOSE = "diagnose";
+    //public static final String PERSON_ID = "person_id";       F.K.
+    //public static final String DOCTOR_ID = "doctor_id";         F.K.
+    //public static final String DIAG_DATE = "diag_date";         F.K.
 }

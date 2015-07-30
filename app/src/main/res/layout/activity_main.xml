@@ -97,7 +97,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/moremainback"
+                android:id="@+id/vipmainback"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
@@ -208,36 +208,6 @@
         android:background="#ffffff"
         android:orientation="horizontal"
         >
-
-        <RelativeLayout
-            android:id="@+id/firstpageback"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:descendantFocusability="blocksDescendants">
-
-            <ImageView
-                android:id="@+id/firstpageicon"
-                android:layout_width="35dip"
-                android:layout_height="35dip"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dip"
-                android:src="@drawable/ic_firstpage"
-                />
-
-            <TextView
-                android:id="@+id/firstpagetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/firstpageicon"
-                android:layout_alignLeft="@+id/firstpageicon"
-                android:layout_alignRight="@+id/firstpageicon"
-                android:text="首页"
-                android:gravity="center"
-                />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/mineback"

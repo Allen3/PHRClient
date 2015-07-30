@@ -55,6 +55,6 @@ public class Doctor {
 
     @Override
     public String toString() {
-        return "Name:" + doc_name + "  Phone: " + doc_phone;
+        return doc_name + '\n' + "电话:" + doc_phone;
     }
 }

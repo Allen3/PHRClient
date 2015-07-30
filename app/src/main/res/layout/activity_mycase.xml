@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="#3399ff"
+        >
+
+        <Button
+            android:id="@+id/mycases_back"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:text="返回"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="我的病例夹"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        >
+
+        <LinearLayout
+            android:id="@+id/history"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="50dip"
+            android:layout_marginTop="50dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:background="#ffffff"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="5"
+                android:text="  诊疗历史"
+                android:textSize="25dp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text=">"
+                android:textSize="30dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/writerec"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="50dip"
+            android:layout_marginTop="110dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:background="#ffffff"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="5"
+                android:text="  填写诊断表"
+                android:textSize="25dp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text=">"
+                android:textSize="30dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

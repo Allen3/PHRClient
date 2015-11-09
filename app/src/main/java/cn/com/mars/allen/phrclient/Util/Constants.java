@@ -7,7 +7,7 @@ import cn.com.mars.allen.phrclient.Beans.PersonHealth;
  */
 public class Constants {
     //  Information on local machine.
-    public static final String PATH = "http://192.168.1.105:8080/";
+    public static final String PATH = "http://192.168.43.117:8080/";
     public static final String LOC_DB_NAME = "phr.db";
     public static final String LOC_FILE_PERSONINFO = "personinfo.json";
     public static final String LOC_FILE_DIAGNOSE = "diagnose.json";
